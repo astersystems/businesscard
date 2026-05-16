@@ -3,23 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Business Card</title>
-    <!-- FontAwesome for clean icons -->
+    <title>Szymon Gerasimuk | ASTERSYSTEMS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts for modern typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --card-border: rgba(255, 255, 255, 0.08);
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --whatsapp-color: #25D366;
-            --email-color: #3b82f6;
+            /* Palette derived from ASTERSYSTEMS Logo */
+            --primary-blue: #6B7FD7; 
+            --accent-blue: #89B4FA;
+            --bg-creamy: #FCF9F1;
+            --card-white: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --whatsapp-green: #25D366;
         }
 
         * {
@@ -30,81 +29,80 @@
         }
 
         body {
-            background: var(--bg-gradient);
+            background-color: var(--bg-creamy);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
-            color: var(--text-primary);
+            color: var(--text-main);
         }
 
         /* Business Card Container */
         .card {
-            background: var(--card-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--card-border);
+            background: var(--card-white);
+            border: 1px solid rgba(107, 127, 215, 0.1);
             padding: 40px 30px;
-            border-radius: 24px;
+            border-radius: 28px;
             width: 100%;
             max-width: 400px;
             text-align: center;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Soft layered shadow for physical card look */
+            box-shadow: 
+                0 10px 25px -5px rgba(0, 0, 0, 0.05),
+                0 20px 40px -10px rgba(107, 127, 215, 0.1);
+            transition: transform 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            transform: translateY(-8px);
         }
 
-        /* Profile/Avatar Placeholder */
-        .avatar {
-            width: 90px;
-            height: 90px;
-            background: linear-gradient(135deg, #6366f1, #3b82f6);
-            color: #ffffff;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 0 auto 20px auto;
-            box-shadow: 0 8px 16px rgba(99, 102, 241, 0.2);
+        /* Logo Styling */
+        .logo-container {
+            width: 100%;
+            max-width: 220px;
+            margin: 0 auto 25px auto;
+        }
+        
+        .logo-container img {
+            width: 100%;
+            height: auto;
         }
 
         /* Identity Details */
         h1 {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 6px;
-            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+            color: var(--text-main);
+            letter-spacing: -0.02em;
         }
 
         .subtitle {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
+            font-size: 0.9rem;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
             margin-bottom: 30px;
-            font-weight: 400;
         }
 
         /* Info Rows */
         .info-container {
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             text-align: left;
-            background: rgba(255, 255, 255, 0.02);
+            background: #f8fafc;
             padding: 20px;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 20px;
+            border: 1px solid rgba(107, 127, 215, 0.05);
         }
 
         .info-item {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 16px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .info-item:last-child {
@@ -112,16 +110,17 @@
         }
 
         .info-item i {
-            width: 30px;
-            font-size: 1.1rem;
-            color: var(--email-color);
-            margin-right: 12px;
-            text-align: center;
+            width: 24px;
+            margin-top: 3px;
+            font-size: 1rem;
+            color: var(--primary-blue);
+            margin-right: 15px;
         }
 
         .info-item span {
-            color: var(--text-secondary);
-            line-height: 1.4;
+            color: var(--text-muted);
+            line-height: 1.5;
+            font-weight: 400;
         }
 
         /* Action Buttons */
@@ -135,34 +134,40 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 10px;
-            padding: 14px;
-            border-radius: 12px;
+            gap: 12px;
+            padding: 16px;
+            border-radius: 16px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
-            transition: filter 0.2s ease, transform 0.1s ease;
-        }
-
-        .btn:active {
-            transform: scale(0.98);
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
         }
 
         .btn-whatsapp {
-            background-color: var(--whatsapp-color);
-            color: #ffffff;
+            background-color: var(--whatsapp-green);
+            color: white;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
         }
 
         .btn-email {
-            background-color: var(--text-primary);
-            color: #0f172a;
+            background-color: var(--primary-blue);
+            color: white;
+            box-shadow: 0 4px 12px rgba(107, 127, 215, 0.2);
         }
 
-        .btn-whatsapp:hover, .btn-email:hover {
-            filter: brightness(1.1);
+        .btn:hover {
+            filter: brightness(1.05);
+            transform: scale(1.02);
         }
 
-        /* Responsive scaling for tiny screens */
+        /* Footer Attribution */
+        .footer-text {
+            margin-top: 25px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            opacity: 0.7;
+        }
+
         @media (max-width: 360px) {
             .card {
                 padding: 30px 20px;
@@ -173,14 +178,13 @@
 <body>
 
     <div class="card">
-        <!-- Initials Avatar -->
-        <div class="avatar">SG</div>
+        <div class="logo-container">
+            <img src="logo.png" alt="ASTERSYSTEMS LLC">
+        </div>
         
-        <!-- Name & Surname -->
         <h1>Szymon Gerasimuk</h1>
         <p class="subtitle">Chief Executive Officer</p>
         
-        <!-- Contact Details -->
         <div class="info-container">
             <div class="info-item">
                 <i class="fa-solid fa-phone"></i>
@@ -188,22 +192,21 @@
             </div>
             <div class="info-item">
                 <i class="fa-solid fa-location-dot"></i>
-                <span>1209 Mountain Road Place Northeast, Suite R<br>Albuquerque, NM 87110</span>
+                <span>1209 Mountain Road Place NE, Suite R<br>Albuquerque, NM 87110</span>
             </div>
         </div>
 
-        <!-- Call to Action Buttons -->
         <div class="cta-container">
-            <!-- WhatsApp Link (Replace with your country code + phone number) -->
             <a href="https://wa.me/16235218157" target="_blank" class="btn btn-whatsapp">
-                <i class="fa-brands fa-whatsapp fa-lg"></i> Chat on WhatsApp
+                <i class="fa-brands fa-whatsapp fa-lg"></i> Message on WhatsApp
             </a>
             
-            <!-- Email Link -->
             <a href="mailto:szymon@aster-systems.com" class="btn btn-email">
                 <i class="fa-regular fa-envelope fa-lg"></i> Send an Email
             </a>
         </div>
+
+        <p class="footer-text">ASTERSYSTEMS LLC</p>
     </div>
 
 </body>
