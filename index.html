@@ -1,9 +1,210 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Example</title>
-    </head>
-    <body>
-        <p>This is an example of a simple HTML page with one paragraph.</p>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Business Card</title>
+    <!-- FontAwesome for clean icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts for modern typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --whatsapp-color: #25D366;
+            --email-color: #3b82f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: var(--text-primary);
+        }
+
+        /* Business Card Container */
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--card-border);
+            padding: 40px 30px;
+            border-radius: 24px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Profile/Avatar Placeholder */
+        .avatar {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #6366f1, #3b82f6);
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 auto 20px auto;
+            box-shadow: 0 8px 16px rgba(99, 102, 241, 0.2);
+        }
+
+        /* Identity Details */
+        h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        /* Info Rows */
+        .info-container {
+            margin-bottom: 35px;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-item i {
+            width: 30px;
+            font-size: 1.1rem;
+            color: var(--email-color);
+            margin-right: 12px;
+            text-align: center;
+        }
+
+        .info-item span {
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        /* Action Buttons */
+        .cta-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 14px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: filter 0.2s ease, transform 0.1s ease;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp-color);
+            color: #ffffff;
+        }
+
+        .btn-email {
+            background-color: var(--text-primary);
+            color: #0f172a;
+        }
+
+        .btn-whatsapp:hover, .btn-email:hover {
+            filter: brightness(1.1);
+        }
+
+        /* Responsive scaling for tiny screens */
+        @media (max-width: 360px) {
+            .card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <!-- Initials Avatar -->
+        <div class="avatar">JD</div>
+        
+        <!-- Name & Surname -->
+        <h1>Szymon Gerasimuk</h1>
+        <p class="subtitle">Chief Executive Officer</p>
+        
+        <!-- Contact Details -->
+        <div class="info-container">
+            <div class="info-item">
+                <i class="fa-solid fa-phone"></i>
+                <span>+1 (623) 521-8157</span>
+            </div>
+            <div class="info-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>1209 Mountain Road Place Northeast, Suite R<br>Albuquerque, NM 87110</span>
+            </div>
+        </div>
+
+        <!-- Call to Action Buttons -->
+        <div class="cta-container">
+            <!-- WhatsApp Link (Replace with your country code + phone number) -->
+            <a href="https://wa.me/16235218157" target="_blank" class="btn btn-whatsapp">
+                <i class="fa-brands fa-whatsapp fa-lg"></i> Chat on WhatsApp
+            </a>
+            
+            <!-- Email Link -->
+            <a href="mailto:szymon@aster-systems.com" class="btn btn-email">
+                <i class="fa-regular fa-envelope fa-lg"></i> Send an Email
+            </a>
+        </div>
+    </div>
+
+</body>
 </html>
